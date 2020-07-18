@@ -6,7 +6,7 @@ import {
   Action,
 } from "vuex-module-decorators";
 import store from "@/store";
-import { Show, Query } from "../models";
+import { Show } from "../models";
 import { fetchShows } from "../api";
 
 @Module({
@@ -18,13 +18,18 @@ import { fetchShows } from "../api";
 class ShowsModule extends VuexModule {
   showData: Show[] = [];
 
+  get showList() {
+    console.log(this.showData);
+    return this.showData;
+  }
+
   @Mutation
   setShow(shows: Show[]) {
     this.showData = shows;
   }
 
   @Action({ commit: "setShow" })
-  async refreshShow(query: Query) {
+  async refreshShow(query: string) {
     const showData = await fetchShows(query);
     return showData;
   }

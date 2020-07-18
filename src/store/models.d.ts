@@ -13,11 +13,7 @@ export interface Show {
     image?: Image | null;
     summary: string;
   };
-}
-
-export interface Query {
-  query: string;
-}
+} 
 
 export interface ShowsResponse {
   shows?: Show[] | null;

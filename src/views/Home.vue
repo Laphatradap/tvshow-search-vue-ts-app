@@ -3,7 +3,6 @@
     <div class="banner">
       <div class="container">
         <h1 class="logo-font">TV Show Land</h1>
-        <p>What to watch</p>
       </div>
     </div>
 
@@ -11,6 +10,7 @@
       <div class="row">
         <div class="col-md-9">
           <div class="feed-toggle">
+            <SearchBar />
             <ShowContainer v-for="show in showList" :show="show" :key="show.id" />
           </div>
         </div>
@@ -22,26 +22,24 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import ShowContainer from "@/components/ShowContainer.vue";
+import SearchBar from "@/components/SearchBar.vue";
 import tvshows from "@/store/modules/shows";
-import { Show } from "@/store/models";
 
 @Component({
   components: {
-    ShowContainer
+    ShowContainer,
+    SearchBar
   }
 })
 export default class Home extends Vue {
-  showList: Show[] = [];
-  query = "";
+  get showList() {
+    return tvshows.showData;
+  }
 
-  created() {
-    tvshows
-      .refreshShow({
-        query: this.query
-      })
-      .then(() => {
-        this.showList = tvshows.showData;
-      });
+  async created() {
+    if (this.showList.length === 0) {
+      await tvshows.refreshShow("girls");
+    }
   }
 }
 </script>

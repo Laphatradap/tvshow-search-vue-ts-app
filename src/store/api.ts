@@ -1,12 +1,11 @@
 import axios from "axios";
-import { ShowsResponse, Query } from "./models";
+import { ShowsResponse } from "./models";
 
 export const tvMazeApi = axios.create({
   baseURL: "https://api.tvmaze.com",
 });
 
-
-export async function fetchShows(query: Query) {
+export async function fetchShows(query: string) {
   try {
     const response = await tvMazeApi.get("/search/shows", {
       params: {
