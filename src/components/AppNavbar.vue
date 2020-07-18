@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="index.html">conduit</a>
+      <!-- <a class="navbar-brand" href="index.html">conduit</a> -->
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
           <!-- Add "active" class when you're on that page" -->
@@ -33,11 +33,6 @@
 
 <script>
 import { Vue, Component } from "vue-property-decorator";
-// import users from "@/store/modules/users";
 @Component
-export default class AppNavbar extends Vue {
-  // get username() {
-  //   return users.username;
-  // }
-}
+export default class AppNavbar extends Vue {}
 </script>
