@@ -2,8 +2,10 @@
   <div class="container">
     <div class="show__card">
       <div class="show-info">
-        <img v-if="show.show.image" :src="show.show.image.medium" alt="poster" />
-        <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
+        <router-link :to="{name: 'showDetails', params: {id: show.show.id}}">
+          <img v-if="show.show.image" :src="show.show.image.medium" alt="poster" />
+          <img v-else :src="require('../../assets/noImage.png')" alt="poster not found" />
+        </router-link>
       </div>
     </div>
   </div>

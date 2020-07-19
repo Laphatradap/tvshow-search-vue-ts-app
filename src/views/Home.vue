@@ -11,7 +11,7 @@
         <div class="col-md-9">
           <div class="feed-toggle">
             <SearchBar />
-            <ShowContainer v-for="show in showList" :show="show" :key="show.id" />
+            <ShowListContainer v-for="show in showList" :show="show" :key="show.id" />
           </div>
         </div>
       </div>
@@ -21,13 +21,13 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import ShowContainer from "@/components/ShowContainer.vue";
+import ShowListContainer from "@/components/Shows/ShowListContainer.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import tvshows from "@/store/modules/shows";
 
 @Component({
   components: {
-    ShowContainer,
+    ShowListContainer,
     SearchBar
   }
 })

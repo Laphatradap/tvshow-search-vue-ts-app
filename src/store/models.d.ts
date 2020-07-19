@@ -11,6 +11,7 @@ export interface Show {
     language: string;
     officialSite?: string | null;
     image?: Image | null;
+    genres: string[];
     summary: string;
   };
 } 
