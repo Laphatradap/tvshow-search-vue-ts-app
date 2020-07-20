@@ -5,10 +5,10 @@
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
           <!-- Add "active" class when you're on that page" -->
-          <a class="nav-link active" href>Home</a>
+          <router-link class="nav-link" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="{name: randomizedShows}">Randomize</router-link>
+          <router-link class="nav-link" to="/random">Randomize</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/category">Categories</router-link>

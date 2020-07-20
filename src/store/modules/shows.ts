@@ -7,7 +7,7 @@ import {
 } from "vuex-module-decorators";
 import store from "@/store";
 import { Show } from "../models";
-import { fetchShows } from "../api";
+import { fetchShows, fetchRandomShows } from "../api";
 
 @Module({
   namespaced: true,
@@ -17,9 +17,9 @@ import { fetchShows } from "../api";
 })
 class ShowsModule extends VuexModule {
   showData: Show[] = [];
+  randomShows: Show[] = [];
 
   get showList() {
-    console.log(this.showData);
     return this.showData;
   }
 
@@ -32,6 +32,21 @@ class ShowsModule extends VuexModule {
   async refreshShow(query: string) {
     const showData = await fetchShows(query);
     return showData;
+  }
+
+  get random() {
+    return this.randomShows;
+  }
+
+  @Mutation
+  setRandomShows(shows: Show[]) {
+    this.randomShows = shows;
+  }
+
+  @Action({ commit: "setRandomShows" })
+  async getRandomShows() {
+    const randomShows = await fetchRandomShows();
+    return randomShows;
   }
 }
 

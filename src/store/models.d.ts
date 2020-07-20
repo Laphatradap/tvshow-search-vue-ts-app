@@ -14,8 +14,7 @@ export interface Show {
     genres: string[];
     summary: string;
   };
-} 
-
+}
 export interface ShowsResponse {
   shows?: Show[] | null;
 }

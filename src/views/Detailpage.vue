@@ -1,33 +1,37 @@
 <template>
-  <section class="container">
-    <img v-if="showList.image" :src="showList.image.medium" alt="poster" />
+  <section class="show-details">
+    <img v-if="showDetails.image" :src="showDetails.image.medium" alt="poster" />
     <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
-    <h1>{{showList.name}}</h1>
-    <h4>{{showList.language}}</h4>
+    <h1>{{showDetails.name}}</h1>
+    <h4>{{showDetails.language}}</h4>
     <h4 v-for="(genre, index) in genres" :key="index">{{genre}}</h4>
-
     <h4>
-      <a href="showList.url">{{showList.officialSite}}</a>
+      <a href="showDetails.url">{{showDetails.officialSite}}</a>
     </h4>
-
-    <p v-html="showList.summary"></p>
+    <p v-html="showDetails.summary"></p>
+    <Suggestion />
   </section>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import tvshows from "@/store/modules/shows";
+import Suggestion from "@/components/Shows/Suggestion.vue";
 
-@Component
+@Component({
+  components: {
+    Suggestion
+  }
+})
 export default class Detailpage extends Vue {
-  get showList() {
+  get showDetails() {
     return tvshows.showData
       .map(show => show.show)
       .find(item => item.id == Number(this.$route.params.id));
   }
 
   get genres() {
-    return this.showList?.genres;
+    return this.showDetails?.genres;
   }
 }
 </script>
