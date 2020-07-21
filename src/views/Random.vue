@@ -3,10 +3,8 @@
     <h1>Random</h1>
     <img v-if="random.image" :src="random.image.medium" alt="random.name" />
     <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
-
     <div>{{random.name}}</div>
     <div>{{random.language}}</div>
-    <!-- <h4 v-for="(genre, index) in genres" :key="index">{{genre}}</h4> -->
     <h4>
       <a href="showList.url">{{random.officialSite}}</a>
     </h4>

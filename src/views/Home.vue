@@ -16,15 +16,12 @@
 import { Vue, Component } from "vue-property-decorator";
 import ShowListContainer from "@/components/Shows/ShowListContainer.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import Sorting from "@/components/Sorting.vue";
 import tvshows from "@/store/modules/shows";
-// type Nullable<T> = T | undefined | null;
 
 @Component({
   components: {
     ShowListContainer,
-    SearchBar,
-    Sorting
+    SearchBar
   }
 })
 export default class Home extends Vue {
@@ -42,15 +39,15 @@ export default class Home extends Vue {
   };
 
   get sortedShow() {
-    return this.showList.sort(this.sortSelectionMapper[this.selected]);
+    return this.showInfo.sort(this.sortSelectionMapper[this.selected]);
   }
 
-  get showList() {
+  get showInfo() {
     return tvshows.showData;
   }
 
   async created() {
-    if (this.showList.length === 0) {
+    if (this.showInfo.length === 0) {
       await tvshows.refreshShow("girls");
     }
   }
