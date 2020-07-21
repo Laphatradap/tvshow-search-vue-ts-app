@@ -6,6 +6,10 @@
           <img v-if="show.show.image" :src="show.show.image.medium" alt="poster" />
           <img v-else :src="require('../../assets/noImage.png')" alt="poster not found" />
         </router-link>
+
+        <p v-if="!show.show.rating.average">no rating available</p>
+        <p v-else>rating {{show.show.rating.average}} ({{show.show.weight}} votes)</p>
+        <!-- <p>{{show}}</p> -->
         <!-- <Card /> -->
       </div>
     </div>

@@ -4,6 +4,10 @@
     <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
     <h1>{{showDetails.name}}</h1>
     <h4>{{showDetails.language}}</h4>
+    <h4>rating: {{showDetails.rating.average}}</h4>
+        <h4>{{showDetails.weight}} votes</h4>
+
+
     <h4 v-for="(genre, index) in genres" :key="index">{{genre}}</h4>
     <h4>
       <a href="showDetails.url">{{showDetails.officialSite}}</a>

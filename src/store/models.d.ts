@@ -3,6 +3,10 @@ export interface Image {
   original: string;
 }
 
+export interface Rating {
+  average?: number ;
+}
+
 export interface Show {
   show: {
     id: number;
@@ -10,6 +14,8 @@ export interface Show {
     name: string;
     language: string;
     officialSite?: string | null;
+    rating: Rating;
+    weight: number;
     image?: Image | null;
     genres: string[];
     summary: string;
