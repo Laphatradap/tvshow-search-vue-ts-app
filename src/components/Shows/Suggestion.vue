@@ -1,12 +1,16 @@
 <template>
-  <section class="show-suggestion">
-    <h1>More like this</h1>
-    <div v-for="item in showSuggestion" :key="item.id">
-      <router-link :to="{name: 'showDetails', params: {id: item.id}}">
-        <img :src="item.image.medium" />
-      </router-link>
-    </div>
-  </section>
+  <div class="container">
+    <section class="section-suggestion">
+      <div class="suggestion">
+        <h2 class="heading-secondary suggestion__title">More like this</h2>
+        <div class="suggestion__image" v-for="item in showSuggestion" :key="item.id">
+          <router-link :to="{name: 'showDetails', params: {id: item.id}}">
+            <img :src="item.image.medium" />
+          </router-link>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -23,3 +27,18 @@ export default class Suggestion extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.section-suggestion {
+  display: flex;
+  justify-content: center;
+}
+
+.suggestion {
+  flex: 0 0 70%;
+
+  &__title {
+    padding: 2rem;
+  }
+}
+</style>

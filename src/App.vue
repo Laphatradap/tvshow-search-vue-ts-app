@@ -20,4 +20,12 @@ import AppFooter from "@/components/AppFooter.vue";
 export default class App extends Vue {}
 </script>
 
-<style></style>
+<style lang="scss">
+#app {
+  font-family: sans-serif;
+  text-align: center;
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column;
+}
+</style>

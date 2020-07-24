@@ -1,14 +1,21 @@
 <template>
-  <div>
-    <h1>TV Show Land</h1>
-    <SearchBar />
-    <select v-model="selected">
-      <option>A-Z</option>
-      <option>Z-A</option>
-      <option>Rating 10-1</option>
-      <option>Rating 1-10</option>
-    </select>
-    <ShowListContainer v-for="show in sortedShow" :show="show" :key="show.id" />
+  <div class="container">
+    <section class="section-userInput">
+      <div class="userInput__search">
+        <SearchBar />
+      </div>
+      <div class="userInput__dropdown">
+        <select v-model="selected">
+          <option>A-Z</option>
+          <option>Z-A</option>
+          <option>Rating 10-1</option>
+          <option>Rating 1-10</option>
+        </select>
+      </div>
+    </section>
+    <section class="section-shows">
+      <ShowListContainer class="show-info" v-for="show in sortedShow" :show="show" :key="show.id" />
+    </section>
   </div>
 </template>
 
@@ -48,8 +55,59 @@ export default class Home extends Vue {
 
   async created() {
     if (this.showInfo.length === 0) {
-      await tvshows.refreshShow("girls");
+      await tvshows.refreshShow("love");
     }
   }
 }
 </script>
+
+<style lang="scss">
+.container {
+  max-width: $content-width;
+  margin: 7rem auto;
+  flex: 1 0 auto;
+}
+.section-userInput {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 2rem 0;
+}
+
+.userInput {
+  @include respond(phone) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  &__search {
+    @include respond(phone) {
+      display: flex;
+      flex: 0 0 80%;
+      padding: 1rem;
+    }
+  }
+
+  &__dropdown {
+    @include respond(phone) {
+      padding: 1rem;
+    }
+  }
+}
+
+.section-shows {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.show-info {
+  padding: 2rem;
+  flex: 0 0 20%;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+}
+</style>

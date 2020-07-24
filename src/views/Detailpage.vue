@@ -1,28 +1,22 @@
 <template>
-  <section class="show-details">
-    <img v-if="showDetails.image" :src="showDetails.image.medium" alt="poster" />
-    <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
-    <h1>{{showDetails.name}}</h1>
-    <h4>{{showDetails.language}}</h4>
-    <h4>rating: {{showDetails.rating.average}}</h4>
-    <h4>{{showDetails.weight}} votes</h4>
-    <h4 v-for="(genre, index) in genres" :key="index">{{genre}}</h4>
-    <h4>
-      <a href="showDetails.url">{{showDetails.officialSite}}</a>
-    </h4>
-    <p v-html="showDetails.summary"></p>
+  <div class="container">
+    <section class="section-showDetails">
+      <Card :show="showDetails" />
+    </section>
     <Suggestion />
-  </section>
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import tvshows from "@/store/modules/shows";
 import Suggestion from "@/components/Shows/Suggestion.vue";
+import Card from "@/components/card.vue";
 
 @Component({
   components: {
-    Suggestion
+    Suggestion,
+    Card
   }
 })
 export default class Detailpage extends Vue {
@@ -31,9 +25,12 @@ export default class Detailpage extends Vue {
       .map(show => show.show)
       .find(item => item.id == Number(this.$route.params.id));
   }
-
-  get genres() {
-    return this.showDetails?.genres;
-  }
 }
 </script>
+
+<style lang="scss">
+.section-showDetails {
+  display: flex;
+  justify-content: center;
+}
+</style>

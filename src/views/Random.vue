@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <h1>Random</h1>
-    <img v-if="random.image" :src="random.image.medium" alt="random.name" />
-    <img v-else :src="require('../assets/noImage.png')" alt="poster not found" />
-    <div>{{random.name}}</div>
-    <div>{{random.language}}</div>
-    <h4>
-      <a href="showList.url">{{random.officialSite}}</a>
-    </h4>
-    <p v-html="random.summary"></p>
-    <button @click="randomize()">get random show</button>
+  <div class="container">
+    <section class="section-random">
+      <Card :show="random" />
+    </section>
+    <button @click="randomize()" class="btn btn-dark random__btn">get random show</button>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import tvshows from "@/store/modules/shows";
+import Card from "@/components/card.vue";
 
-@Component({})
+@Component({
+  components: {
+    Card
+  }
+})
 export default class Random extends Vue {
   get random() {
     return tvshows.randomShows;
@@ -34,3 +33,12 @@ export default class Random extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+.section-random {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  // background: blue;
+}
+</style>

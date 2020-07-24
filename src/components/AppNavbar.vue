@@ -1,23 +1,71 @@
 <template>
-  <nav class="navbar navbar-light">
-    <div class="container">
-      <ul class="nav navbar-nav pull-xs-right">
+  <header class="header">
+    <nav class="nav-container">
+      <ul class="nav-wrapper">
         <li class="nav-item">
-          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link to="/">TVSHOWLAND</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/random">Randomize</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/category">Categories</router-link>
+          <router-link to="/random">Randomize</router-link>
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 </template>
 
 <script>
 import { Vue, Component } from "vue-property-decorator";
-@Component
+
+@Component({})
 export default class AppNavbar extends Vue {}
 </script>
+
+
+<style lang="scss">
+.header {
+  position: relative;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7rem;
+  overflow: hidden;
+  background-color: $color-black-light-1;
+  font-size: 1.6rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  .nav-wrapper {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+
+    .nav-item {
+      color: $color-white;
+
+      &:first-child {
+        margin-left: 3rem;
+        margin-right: auto;
+      }
+
+      &:last-child {
+        margin-right: 3rem;
+      }
+
+      a {
+        color: $color-white;
+        text-decoration: none;
+        padding: 1.4rem;
+
+        &:hover {
+          background-color: green;
+        }
+      }
+    }
+  }
+}
+</style>
