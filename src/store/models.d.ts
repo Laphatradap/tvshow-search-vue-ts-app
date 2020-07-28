@@ -4,7 +4,7 @@ export interface Image {
 }
 
 export interface Rating {
-  average?: number ;
+  average?: number;
 }
 
 export interface Show {
@@ -13,10 +13,10 @@ export interface Show {
     url: string;
     name: string;
     language: string;
-    officialSite?: string | null;
+    officialSite?: string;
     rating: Rating;
     weight: number;
-    image?: Image | null;
+    image?: Image;
     genres: string[];
     summary: string;
   };

@@ -24,6 +24,7 @@ import { Vue, Component } from "vue-property-decorator";
 import ShowListContainer from "@/components/Shows/ShowListContainer.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import tvshows from "@/store/modules/shows";
+import { Show } from "../store/models";
 
 @Component({
   components: {
@@ -34,15 +35,20 @@ import tvshows from "@/store/modules/shows";
 export default class Home extends Vue {
   selected = "A-Z";
 
-  sortSelectionMapper = {
-    "A-Z": (a: Record<string, any>, b: Record<string, any>): number =>
-      a.show.name < b.show.name ? -1 : 1,
-    "Z-A": (a: Record<string, any>, b: Record<string, any>): number =>
-      a.show.name > b.show.name ? -1 : 1,
-    "Rating 10-1": (a: Record<string, any>, b: Record<string, any>): number =>
+  sortSelectionMapper: any = {
+    "A-Z": (a: Show, b: Show): number => (a.show.name < b.show.name ? -1 : 1),
+    "Z-A": (a: Show, b: Show): number => (a.show.name > b.show.name ? -1 : 1),
+    // "Rating 10-1": (a: Show, b: Show) => {
+    //   if (a?.show?.rating?.average? > b?.show?.rating?.average?) {
+    //     return -1
+    //   } else {
+    //     return 1
+    //   }
+    // }
+    "Rating 10-1": (a: any, b: any): number =>
       a.show.rating.average > b.show.rating.average ? -1 : 1,
-    "Rating 1-10": (a: Record<string, any>, b: Record<string, any>): number =>
-      a.show.rating.average < b.show.rating.average ? -1 : 1
+    "Rating 1-10": (a: any, b: any): number =>
+      a.show.rating?.average < b.show.rating.average ? -1 : 1
   };
 
   get sortedShow() {
