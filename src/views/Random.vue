@@ -3,7 +3,7 @@
     <section class="section-random">
       <Card :show="random" />
     </section>
-    <button @click="randomize()" class="btn btn-dark random__btn">get random show</button>
+    <button @click="randomize()" class="btn btn-dark random__btn text">get random show</button>
   </div>
 </template>
 

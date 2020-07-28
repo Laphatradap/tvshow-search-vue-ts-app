@@ -3,10 +3,10 @@
     <nav class="nav-container">
       <ul class="nav-wrapper">
         <li class="nav-item">
-          <router-link to="/">TVSHOWLAND</router-link>
+          <router-link to="/" class="heading-primary">TVSHOWLAND</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/random">Randomize</router-link>
+          <router-link to="/random" class="heading-primary">Randomize</router-link>
         </li>
       </ul>
     </nav>
