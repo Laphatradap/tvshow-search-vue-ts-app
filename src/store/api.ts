@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ShowsResponse } from "./models";
-import shows from "./modules/shows";
+// import shows from "./modules/shows";
 
 export const tvMazeApi = axios.create({
   baseURL: "https://api.tvmaze.com",
