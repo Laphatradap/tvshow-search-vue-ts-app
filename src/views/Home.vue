@@ -36,19 +36,12 @@ export default class Home extends Vue {
   selected = "A-Z";
 
   sortSelectionMapper: any = {
-    "A-Z": (a: Show, b: Show): number => (a.show.name < b.show.name ? -1 : 1),
-    "Z-A": (a: Show, b: Show): number => (a.show.name > b.show.name ? -1 : 1),
-    // "Rating 10-1": (a: Show, b: Show) => {
-    //   if (a?.show?.rating?.average? > b?.show?.rating?.average?) {
-    //     return -1
-    //   } else {
-    //     return 1
-    //   }
-    // }
+    "A-Z": (a: Show, b: Show): number => (a.name < b.name ? -1 : 1),
+    "Z-A": (a: Show, b: Show): number => (a.name > b.name ? -1 : 1),
     "Rating 10-1": (a: any, b: any): number =>
-      a.show.rating.average > b.show.rating.average ? -1 : 1,
+      a.rating.average > b.rating.average ? -1 : 1,
     "Rating 1-10": (a: any, b: any): number =>
-      a.show.rating?.average < b.show.rating.average ? -1 : 1
+      a.rating?.average < b.rating.average ? -1 : 1
   };
 
   get sortedShow() {

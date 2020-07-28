@@ -39,6 +39,5 @@ export default class Random extends Vue {
   display: flex;
   justify-content: center;
   padding-bottom: 1rem;
-  // background: blue;
 }
 </style>

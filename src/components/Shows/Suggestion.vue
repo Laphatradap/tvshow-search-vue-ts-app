@@ -21,7 +21,7 @@ import tvshows from "@/store/modules/shows";
 export default class Suggestion extends Vue {
   get showSuggestion() {
     return tvshows.showData
-      .map(show => show.show)
+      .map(show => show)
       .filter(item => item.id !== Number(this.$route.params.id))
       .slice(0, 3);
   }

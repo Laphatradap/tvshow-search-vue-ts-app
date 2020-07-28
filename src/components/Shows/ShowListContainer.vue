@@ -1,17 +1,14 @@
 <template>
   <div>
-    <router-link :to="{ name: 'showDetails', params: { id: show.show.id } }">
-      <img v-if="show.show.image" :src="show.show.image.medium" alt="poster" />
+    <router-link :to="{ name: 'showDetails', params: { id: show.id } }">
+      <img v-if="show.image" :src="show.image.medium" alt="poster" />
       <img v-else :src="require('../../assets/noImage.png')" alt="poster not found" />
     </router-link>
-    <h3
-      class="heading-tertiary show-info__rating"
-      v-if="!show.show.rating.average"
-    >no rating available</h3>
+    <h3 class="heading-tertiary show-info__rating" v-if="!show.rating.average">no rating available</h3>
     <h3
       class="heading-tertiary show-info__rating"
       v-else
-    >rating {{ show.show.rating.average }} ({{ show.show.weight }} votes)</h3>
+    >rating {{ show.rating.average }} ({{ show.weight }} votes)</h3>
   </div>
 </template>
 

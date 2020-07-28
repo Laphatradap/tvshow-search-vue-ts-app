@@ -13,7 +13,8 @@ export async function fetchShows(query: string) {
         q: query,
       },
     });
-    return response.data as ShowsResponse;
+   
+    return response.data.map((item: any) => item.show) as ShowsResponse;
   } catch (err) {
     console.error(err);
   }

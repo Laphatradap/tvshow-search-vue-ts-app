@@ -21,9 +21,9 @@ import Card from "@/components/card.vue";
 })
 export default class Detailpage extends Vue {
   get showDetails() {
-    return tvshows.showData
-      .map(show => show.show)
-      .find(item => item.id == Number(this.$route.params.id));
+    return tvshows.showData.find(
+      item => item.id == Number(this.$route.params.id)
+    );
   }
 }
 </script>
