@@ -1,3 +1,5 @@
+// const routes = import("./src/router");
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -6,4 +8,11 @@ module.exports = {
       },
     },
   },
+  // pluginOptions: {
+  //   sitemap: {
+  //     // baseURL: "https://tvshows-vue-ts-app.netlify.app/",
+  //     routes,
+  //     outputDir: "/temp/sitemap",
+  //   },
+  // },
 };

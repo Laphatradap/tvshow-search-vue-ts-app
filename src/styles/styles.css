@@ -79,6 +79,12 @@ body {
   text-transform: capitalize;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .heading-primary {
+    font-size: 2.2rem;
+  }
+}
+
 .heading-secondary {
   font-size: 2rem;
   font-weight: 500;
@@ -94,6 +100,12 @@ body {
 .text {
   font-size: 1.6rem;
   text-transform: capitalize;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .text {
+    font-size: 1.8rem;
+  }
 }
 
 .paragraph {

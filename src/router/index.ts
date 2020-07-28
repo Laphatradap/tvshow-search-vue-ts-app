@@ -7,22 +7,23 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: () => import("@/views/Home.vue"),
+    component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
   },
   {
     path: "/details/:id",
     name: "showDetails",
-    component: () => import("@/views/Detailpage.vue"),
+    component: () => import(/* webpackChunkName: "details" */ "@/views/Detailpage.vue"),
   },
   {
     path: "/random",
     name: "randomizedShows",
-    component: () => import("@/views/Random.vue"),
+    component: () => import(/* webpackChunkName: "random" */ "@/views/Random.vue"),
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
+  base: process.env.BASE_URL,
   routes,
 });
 

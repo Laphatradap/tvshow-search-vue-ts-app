@@ -11,7 +11,7 @@
       <h2 class="heading-secondary">{{show.language}}</h2>
       <h2 class="heading-secondary" v-for="(genre, index) in genres" :key="index">{{genre}}</h2>
       <h2
-        v-if="show.rating.average"
+        v-if="show.rating"
         class="heading-secondary"
       >rating: {{show.rating.average}} ({{show.weight}} votes)</h2>
       <h2 v-else class="heading-secondary">No rating available</h2>

@@ -6,7 +6,9 @@
           <router-link to="/" class="heading-primary">TVSHOWLAND</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/random" class="heading-primary">Randomize</router-link>
+          <router-link to="/random" class="heading-primary"
+            >Randomize</router-link
+          >
         </li>
       </ul>
     </nav>
@@ -19,7 +21,6 @@ import { Vue, Component } from "vue-property-decorator";
 @Component({})
 export default class AppNavbar extends Vue {}
 </script>
-
 
 <style lang="scss">
 .header {
@@ -62,7 +63,7 @@ export default class AppNavbar extends Vue {}
         padding: 1.4rem;
 
         &:hover {
-          background-color: green;
+          background-color: $color-black;
         }
       }
     }
